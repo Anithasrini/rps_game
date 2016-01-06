@@ -7,9 +7,23 @@ public class App {
   public static void main(String[] args) {
     String layout = "templates/layout.vtl";
 
-    get("/form", (request, response) -> {
+    get("/form2Player", (request, response) -> {
       HashMap model = new HashMap();
-      model.put("template", "templates/form.vtl");
+      model.put("template", "templates/form2Player.vtl");
+
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/form1Player", (request, response) -> {
+      HashMap model = new HashMap();
+      model.put("template", "templates/form1Player.vtl");
+
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/main", (request, response) -> {
+      HashMap model = new HashMap();
+      model.put("template", "templates/main.vtl");
 
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -21,8 +35,12 @@ public class App {
       String p2 = request.queryParams("player2");
 
       RockPaperScissors rps = new RockPaperScissors();
-      String rpsWinner = rps.calculateWinner(p1, p2);
+      if(p2 == null){
+        p2 = rps.randomRockPaperScissorSelector();
+      }
 
+      String rpsWinner = rps.calculateWinner(p1, p2);
+      model.put("p2", p2);
       model.put("rpsWinner", rpsWinner);
       model.put("template", "templates/output.vtl");
       return new ModelAndView(model, layout);
