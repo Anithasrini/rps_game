@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class RockPaperScissors {
+
   public String randomRockPaperScissorSelector() {
     Random myRandomInt = new Random();
 
@@ -15,6 +16,21 @@ public class RockPaperScissors {
         return "scissors";
       default:
         return "error";
-    }
+    } // End Switch
+  }// End randomRockPaperScissorSelector
+
+  public String calculateWinner(String player1, String player2, String gameMode) {
+    String winner = "";
+
+    if(player1 == "rock" && player2 == "paper" && gameMode == "2player") {
+      winner = "player2";
+    } // End if
+    else if(player1 == "rock" && player2 == "scissors" && gameMode == "2player") {
+      winner = "player1";
+    } // End else if
+    else if(player1 == "rock" && player2 == "rock" && gameMode == "2player") {
+      winner = "tie";
+    } // End else if
+    return winner;
   }
 }
