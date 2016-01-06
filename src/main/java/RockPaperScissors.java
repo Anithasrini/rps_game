@@ -22,26 +22,26 @@ public class RockPaperScissors {
   public String calculateWinner(String player1, String player2) {
     String winner = "";
 
-    if(player1 == "rock" && player2 == "paper") {
+    if(player1.equals("rock") && player2.equals("paper")) {
       winner = "player2";
     } // End if
-    else if(player1 == "rock" && player2 == "scissors") {
+    else if(player1.equals("rock") && player2.equals("scissors")) {
       winner = "player1";
     } // End else if
-    else if(player1 == "paper" && player2 == "rock") {
+    else if(player1.equals("paper") && player2.equals("rock")) {
       winner = "player1";
     } // End else if
-    else if(player1 == "paper" && player2 == "scissors") {
+    else if(player1.equals("paper") && player2.equals("scissors")) {
       winner = "player2";
     } // End else if
-    else if(player1 == "scissors" && player2 == "rock") {
+    else if(player1.equals("scissors") && player2.equals("rock")) {
       winner = "player2";
     } // End else if
-    else if(player1 == "scissors" && player2 == "paper") {
+    else if(player1.equals("scissors") && player2.equals("paper")){
       winner = "player1";
     } // End else if
     else {
-      winner = "tie";
+      winner = "tie game play again";
     }// End else
     return winner;
   }// End calculateWinner

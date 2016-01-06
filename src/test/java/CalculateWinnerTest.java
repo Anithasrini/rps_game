@@ -42,18 +42,18 @@ public class CalculateWinnerTest {
   @Test
   public void calculateWinner_Player1ScissorsPlayer2Scissor2PlayerMode_tie() {
     RockPaperScissors rps = new RockPaperScissors();
-    assertEquals("tie", rps.calculateWinner("scissors", "scissor"));
+    assertEquals("tie game play again", rps.calculateWinner("scissors", "scissor"));
   }
 
   @Test
   public void calculateWinner_Player1paperPlayer2paper2PlayerMode_tie() {
     RockPaperScissors rps = new RockPaperScissors();
-    assertEquals("tie", rps.calculateWinner("paper", "paper"));
+    assertEquals("tie game play again", rps.calculateWinner("paper", "paper"));
   }
 
   @Test
   public void calculateWinner_Player1RockPlayer2Rock2PlayerMode_tie() {
     RockPaperScissors rps = new RockPaperScissors();
-    assertEquals("tie", rps.calculateWinner("rock", "rock"));
+    assertEquals("tie game play again", rps.calculateWinner("rock", "rock"));
   }
 } // End CalculateWinnerTest
