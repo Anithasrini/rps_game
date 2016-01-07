@@ -7,6 +7,13 @@ public class App {
   public static void main(String[] args) {
     String layout = "templates/layout.vtl";
 
+    get("/", (request, response) -> {
+      HashMap model = new HashMap();
+      model.put("template", "templates/index.vtl");
+
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     get("/form2Player", (request, response) -> {
       HashMap model = new HashMap();
       model.put("template", "templates/form2Player.vtl");
@@ -17,13 +24,6 @@ public class App {
     get("/form1Player", (request, response) -> {
       HashMap model = new HashMap();
       model.put("template", "templates/form1Player.vtl");
-
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
-
-    get("/main", (request, response) -> {
-      HashMap model = new HashMap();
-      model.put("template", "templates/main.vtl");
 
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
